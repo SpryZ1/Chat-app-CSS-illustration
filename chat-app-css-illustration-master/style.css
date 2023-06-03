@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* sub-heading at the top of the app UI */
+    --clr-primary-1: hsl(276, 100%, 81%, .2);
+    /* chat on the left */
+    --clr-primary-2: hsl(276, 55%, 52%);
+    /* chat on the right */
+    --clr-primary-3: hsl(271, 15%, 43%);
+    /* placeholder text */
+    --clr-primary-4: hsl(206, 6%, 79%);
+    /* main heading */
+    --clr-primary-5: hsl(271, 36%, 24%);
+    /* paragraph */
+    --clr-primary-6: hsl(270, 7%, 64%);
+
+
+    --gradient-2: hsl(293, 100%, 63%);
+    --gradient-1: hsl(264, 100%, 61%);
+
+
+    --White: hsl(0, 0%, 100%);
+    /* app background */
+    --clr-neutral-1: hsl(270, 20%, 96%);
+    /* submit button background */
+    --clr-neutral-2: hsl(271, 36%, 24%);
+    /* radio button outline */
+    --clr-neutral-3: hsl(289, 100%, 72%);
+
+
+    --fw-normal: 400;
+    --fw-bold: 500;
+    --fw-black: 700;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+    background: var(--clr-neutral-1);
+    overflow-x: hidden;
+}
+
+.bg-top {
+    position: absolute;
+    width: 50%;
+    height: 50vh;
+    border-radius: 0 0 1000px 0;
+    background-image: linear-gradient(to bottom, var(--gradient-2), var(--gradient-1));
+    z-index: -1;
+}
+
+.bg-bottom {
+    position: absolute;
+    bottom: -120px;
+    right: 0;
+    width: 50%;
+    height: 60vh;
+    border-radius: 1000px 0 0 0;
+    background-color: hsl(206, 6%, 79%, .1);
+    z-index: -1;
+}
+
+@media (width > 875px) {
+    .bg-top {
+        width: 30%;
+        height: 80vh;
+    }
+
+    .bg-bottom {
+        width: 30%;
+        height: 100vh;
+    }
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container .phone {
+    position: relative;
+    width: 320px;
+    height: 620px;
+    border: 10px solid var(--White);
+    border-radius: 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 .5rem 2rem 1rem hsl(0, 0%, 0%, .1);
+    background: var(--clr-neutral-1);
+    margin-inline: 2rem;
+}
+
+@media (width > 875px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .container .phone {
+        margin: 0 auto;
+    }
+}
+
+.container .phone .header {
+    position: relative;
+    background: linear-gradient(to right, var(--gradient-1), var(--gradient-2));
+    height: 80px;
+    border-radius: 1.5rem 1.5rem .5rem .5rem;
+}
+
+.container .phone .header .header-top {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    background: var(--White);
+    width: 180px;
+    height: 25px;
+    border-radius: 0 0 2rem 2rem;
+}
+
+.container .phone .header .pfp {
+    position: absolute;
+    bottom: 12px;
+    left: 11%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--White);
+}
+
+.header .chevron::before {
+    content: '';
+    position: absolute;
+    bottom: 28px;
+    left: 7%;
+    width: 3px;
+    height: 6px;
+    transform: skew(-30deg);
+    background: var(--White);
+}
+
+.header .chevron::after {
+    content: '';
+    position: absolute;
+    bottom: 22px;
+    left: 7%;
+    width: 3px;
+    height: 6px;
+    transform: skew(30deg);
+    background: var(--White);
+}
+
+.header .dots {
+    position: absolute;
+    bottom: 28px;
+    right: 7%;
+    width: 3px;
+    height: 3px;
+    background: hsl(0, 0%, 100%, .8);
+    border-radius: 50%;
+}
+
+.header .dots::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    right: 7%;
+    width: 3px;
+    height: 3px;
+    background: hsl(0, 0%, 100%, .8);
+    border-radius: 50%;
+}
+
+.header .dots::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: 7%;
+    width: 3px;
+    height: 3px;
+    background: hsl(0, 0%, 100%, .8);
+    border-radius: 50%;
+}
+
+.container .phone .header .split {
+    position: absolute;
+    bottom: 10px;
+    left: 25%;
+    color: var(--White);
+}
+
+.container .phone .header .split .name {
+    font-weight: var(--fw-bold);
+    margin-bottom: .2rem;
+}
+
+.container .phone .header .split .status {
+    font-size: .7rem;
+    color: var(--clr-primary-6);
+}
+
+.leftMsg {
+    width: 60%;
+    margin-top: 3%;
+    margin-left: 3%;
+    border-radius: .8rem .8rem .8rem .3rem;
+    padding: .6rem;
+    font-size: .75rem;
+    color: var(--clr-primary-2);
+    background: var(--clr-primary-1);
+}
+
+.leftMsg:nth-child(7) {
+    margin-top: 5%;
+}
+
+.right {
+    display: flex;
+    justify-content: end;
+}
+
+.rightMsg {
+    width: 60%;
+    margin-top: 3%;
+    margin-right: 3%;
+    border-radius: .8rem .8rem .3rem .8rem;
+    padding: .6rem;
+    font-size: .7rem;
+    color: var(--clr-primary-3);
+    background: var(--White);
+    box-shadow: 0 .2rem .2rem .1rem hsl(0, 0%, 0%, .03);
+}
+
+.mid {
+    margin-top: 2%;
+}
+
+.last {
+    width: 36%;
+}
+
+.imgs {
+    margin-top: 5%;
+    margin-right: 3%;
+}
+
+.imgs img {
+    width: 50px;
+    height: 50px;
+    border-radius: .8rem;
+}
+
+.imgs img:nth-child(2) {
+    margin-inline: .4rem;
+}
+
+.payment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: linear-gradient(to right, var(--gradient-2), var(--gradient-1));
+    border-radius: .8rem .8rem .8rem .3rem;
+    margin-top: 3%;
+    margin-left: 3%;
+    padding: .6rem;
+    width: 70%;
+}
+
+.payment .paymentOne,
+.paymentTwo {
+    font-size: .75rem;
+    color: hsl(270, 20%, 96%, .8);
+}
+
+.payment i {
+    color: hsl(270, 20%, 96%, .4);
+    margin-right: .5rem;
+}
+
+.payment p {
+    font-weight: var(--fw-black);
+    color: var(--White);
+    margin-right: 3%;
+}
+
+.container .phone .center {
+    display: flex;
+    justify-content: center;
+}
+
+.container .phone .send {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    padding: .5rem;
+    border-radius: 2rem;
+    margin-top: 6%;
+    background: var(--White);
+}
+
+.container .phone .send .sendMsg {
+    border: none;
+    padding: .5rem;
+    border-radius: 2rem;
+    width: 85%;
+}
+
+.container .phone .send .sendMsg::placeholder {
+    color: var(--clr-primary-4);
+}
+
+.container .phone .send .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--clr-neutral-2);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.container .phone .send .icon i {
+    color: var(--White);
+}
+
+.main-text {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+@media (width > 875px) {
+    .main-text {
+        text-align: left;
+    }
+}
+
+.main-text h1 {
+    font-size: 3rem;
+    font-weight: var(--fw-bold);
+    color: var(--clr-primary-5);
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.main-text p {
+    font-size: 1.2rem;
+    max-width: 30ch;
+    line-height: 1.5;
+    margin: 0 auto;
+    color: var(--clr-primary-6);
+}
+
+@media (width > 875px) {
+    .main-text p {
+        margin: 0;
+        max-width: 44ch;
+    }
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+@media (width > 875px) {
+    .attribution {
+        margin-top: 5rem;
+    }
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+.signature {
+    color: #f00;
+    font-weight: 700;
+}
